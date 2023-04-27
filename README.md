@@ -20,10 +20,19 @@ composer require spatie/laravel-honeypot
 php artisan vendor:publish --provider="Spatie\Honeypot\HoneypotServiceProvider" --tag=config
 ```
 
-- Add Honeypot
+- Add Honeypot via Blade component
 
 ```php
-<form method="POST" action="{{ route('contactForm.submit') }}")>
+<form method="POST" action="{{ route('contactForm.submit') }}">
+    <x-honeypot />
+    <input name="myField" type="text">
+</form>
+```
+
+- Alternative Add Honeypot via Blade directive
+
+```php
+<form method="POST" action="{{ route('contactForm.submit') }}">
     @honeypot
     <input name="myField" type="text">
 </form>
